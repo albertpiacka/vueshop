@@ -38,7 +38,11 @@
                                     </div>
                                 </div>
 
-                                <b-icon icon="cart-check" @click="addToCart(item)"></b-icon>
+                                <b-icon icon="cart-check" @click="addToCart(item)" :id="`quickshop-tooltip-${item.id}`"></b-icon>
+
+                                <b-tooltip :target="`quickshop-tooltip-${item.id}`" triggers="hover">
+                                    Quick-add to
+                                </b-tooltip>
                             </div>
                         </div>
                     </div>
