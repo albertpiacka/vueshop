@@ -1,0 +1,25 @@
+/**
+ * This file contains variables 
+ */
+$color-primary: rgba(0, 0, 0, 1);
+$color-secondary: rgba(255, 255, 255, 1);
+$color-hover-primary: rgba(100, 252, 217, 1);
+$color-hover-secondary: rgba(255, 182, 29, 1);
+$color-shadow: #4c4a4a;
+
+$coffee-colors: (
+    1: #f5ad03,
+    2: #f78762,
+    3: #60ad69,
+    4: #447af2,
+    5: #f56e02,
+    6: #0d91a6,
+);
+
+@each $id, $color in $coffee-colors {
+    #select-#{$id}:focus {
+        border: 1px solid lighten($color, 10%) !important;
+        box-shadow: 0 0 0 0.2rem lighten($color, 10%)  !important;
+    }
+}
+   

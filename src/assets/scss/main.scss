@@ -1,0 +1,13 @@
+// Variables
+@import 'abstract/animations';
+@import 'abstract/variables';
+
+// General
+@import 'general/base';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';

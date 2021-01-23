@@ -1,0 +1,46 @@
+/**     
+ * This file contains animations  
+ */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+.contentFade-enter-active, .contentFade-leave-active {
+    transition: opacity .2s;
+}
+
+.contentFade-enter, .contentFade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+.slideDown-enter-active, .slideDown-leave-active {
+    transition: all .5s;
+}
+.slideDown-enter, .slideDown-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+@keyframes animatedNum {
+    0%,100%
+    {
+        text-shadow: -1.5px -1.5px 0 #0ff,1.5px 1.5px 0 #f00;
+    }
+        25%
+    {
+        text-shadow: 1.5px 1.5px 0 #0ff,-1.5px -1.5px 0 #f00;
+    }
+        50%
+    {
+        text-shadow: 1.5px 1.5px 0 #0ff,-1.5px 1.5px 0 #f00;
+    }
+        75%
+    {
+        text-shadow: -1.5px 1.5px 0 #0ff,1.5px -1.5px 0 #f00;
+    }
+}

@@ -1,0 +1,48 @@
+/**
+ * This file contains basic styles
+ */
+
+.content {
+    position: relative;
+    top: 5em;
+}
+
+.adress {
+    font-size: 1.5em;
+    padding: 1em;
+    font-weight: 100;
+
+    a {
+        color: $color-primary;
+        &:hover, &:focus {
+            color: $color-primary;
+            text-decoration: none;
+        }
+    }
+}
+
+.b-rating {
+    border: none !important;
+    background: transparent !important;
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.bi {
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #F5AD03 !important;
+    border: #F5AD03 !important;
+    &:focus {
+        box-shadow: 0 0 0 0.2rem #e9ab19 !important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent;  
+}
