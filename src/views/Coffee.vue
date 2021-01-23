@@ -34,14 +34,15 @@
                                     </div>
 
                                     <div class="package">
-                                        <b-form-select v-model="item.selected" :options="item.options" :id="`select-${item.id}`"></b-form-select>
+                                        <b-form-select v-model="item.selected" :options="item.options" :id="`select-${item.id}`">
+                                        </b-form-select>
                                     </div>
                                 </div>
 
                                 <b-icon icon="cart-check" @click="addToCart(item)" :id="`quickshop-tooltip-${item.id}`"></b-icon>
 
                                 <b-tooltip :target="`quickshop-tooltip-${item.id}`" triggers="hover">
-                                    Quick-add to
+                                    Quick-add to basket
                                 </b-tooltip>
                             </div>
                         </div>
