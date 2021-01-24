@@ -16,6 +16,8 @@ import Coffee from './views/Coffee.vue'
 import Accessories from './views/Accessories.vue'
 import Items from './views/Items.vue'
 
+import NotFound from './views/NotFound.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,7 +25,8 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			component: Home
+			component: Home,
+			meta: 'home'
 		},
 		{
 			path: '/about',
@@ -65,6 +68,10 @@ export default new Router({
 			path: '/ordered',
 			component: Ordered,
 			meta: 'ordered'
+		},
+		{
+			path: '/*',
+			component: NotFound,
 		},
 	]
 })

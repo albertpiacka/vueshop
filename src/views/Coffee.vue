@@ -55,9 +55,11 @@
 
 <script>
     import { data } from '../data'
+    import VueMixins from '../mixins/VueMixins'
 
     export default {
         name: 'coffee',
+        mixins: [VueMixins],
 
         data() {
             return {
@@ -78,43 +80,6 @@
                     { value: '1', text: '1000gr' },
                 ] 
             })
-        },
-
-        methods: {
-            addToCart(item){
-                var existing = localStorage.getItem('basket')
-
-                existing = existing ? existing.split(',') : []
-
-                let obj = {
-                    id: (Math.random()*1000).toFixed(0),
-                    name: item.name,
-                    quantity: 1,
-                    package: `${item.selected * 1000}gr`,
-                    price: ((item.price * Number(item.selected)) * 1).toFixed(2)
-                }
-
-                existing.push(JSON.stringify([obj]));
-
-                localStorage.setItem('basket', existing.toString())
-
-                item.selected = '0.25'
-
-                this.$root.$emit('flash', 'Item added to cart')
-            },
-
-            returnPrice(item){
-                return (item.price * Number(item.selected)).toFixed(2)
-            },
-
-            setItem(item){
-                let data = {
-                    obj: item,
-                    type: 'coffee'
-                }
-
-                this.$root.$emit('quickview', data)
-            }
         },
     }
 </script>
@@ -141,73 +106,6 @@
                 grid-gap: 4em;
                 padding: 2em;
                 grid-template-columns: 1fr;
-            }
-
-            .coffee-box {
-                border-radius: 2em;
-                display: grid;
-                grid-template-rows: 1.5fr 2fr;
-                grid-template-columns: 1fr;
-                overflow: hidden;
-            }
-
-            .coffee-header {
-                padding: 1em;
-                display: flex;
-                justify-content: space-between;
-
-                a {
-                    color: $color-secondary;
-                    font-weight: 800;
-                    letter-spacing: .1em;
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    text-shadow: 4px 5px 7px $color-shadow;
-                }
-
-                .bi-arrows-fullscreen {
-                    color: $color-secondary;
-                    transition: all .3s;
-                    &:hover {
-                        transform: scale(1.05);
-                    }
-                }
-            }
-
-            .coffee-body-wrapper {
-                padding: 1em;
-                background: #fff;
-            }
-
-            .coffee-footer {
-                padding: 1em;
-                text-align: right;
-                display: flex;
-                justify-content: space-between;
-                .wrapper {
-                    display: flex;
-                    column-gap: 1em;
-
-                    @media screen and (max-width: 320px){
-                        display: block;
-                        .price {
-                            text-align: left;
-                            margin-bottom: .5em;
-                        }
-                    }
-                }
-
-                .bi-cart-check, .price {
-                    align-self: center;
-                }
-
-                .package {
-                    .custom-select {
-                        max-width: 6em;
-                        border-radius: 1em;
-                        margin: .1em 0;
-                    }
-                }   
             }
         }
     }

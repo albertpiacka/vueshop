@@ -66,12 +66,6 @@
         padding: 1em 0;
     } 
 
-    textarea, input[type="range"], input, input:matches([type="password"], [type="search"]) {   
-        -webkit-appearance: none !important;
-        -moz-appearance: none !important;
-        appearance: none !important;
-    }
-
     .checkout {
         background: url('../assets/background/image-9.png') no-repeat center 3em;
         background-attachment: fixed;

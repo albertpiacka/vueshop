@@ -23,7 +23,7 @@
                 </div>
                  
                 <router-link to="/basket" class="basket-link">
-                    <b-icon icon="handbag" scale="2"></b-icon>
+                    <b-icon icon="handbag" scale="2" @click="hideContent"></b-icon>
                 </router-link>
             </div>
         </div>
@@ -72,16 +72,29 @@
         methods: {
             toggleMenu() {
                 let content = document.querySelector('.content')
+                let quickview = document.querySelector('.quickview')
+
+                this.hideContent()
 
                 if(this.menu == false){
                     this.menu = true
                     content.style.filter = "blur(2px)"
                     content.style.transition = "all .5s ease"
+
+                    quickview.style.filter = "blur(2px)"
+                    quickview.style.transition = "all .5s ease"
                 } else {
                     this.menu = false
                     content.style.filter = "blur(0px)"
                     content.style.transition = "all .5s ease"
+
+                    quickview.style.filter = "blur(0px)"
+                    quickview.style.transition = "all .5s ease"
                 }
+            },
+
+            hideContent(){
+                this.$root.$emit('hide-content')
             },
         },
     }
@@ -99,13 +112,13 @@
     .nav-controls {
         position: fixed;
         width: 100%;
-        z-index: 10;
+        z-index: 101;
     }
 
     .navbar-wrapper {
         position: relative;
         width: 100%;
-        z-index: 10;
+        z-index: 101;
         display: flex;
         flex-direction: row;
         background-color: transparent;
@@ -120,7 +133,7 @@
     .menu {
         .overlay {
             position: fixed;
-            z-index: 3;
+            z-index: 10;
             width: 100%;
             height: 100%;
             top: 0;
@@ -129,7 +142,7 @@
 
         .menu-list {
             position: fixed;
-            z-index: 10;
+            z-index: 101;
             width: 30%;
             padding: 0;
             list-style: none;

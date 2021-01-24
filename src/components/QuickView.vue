@@ -107,6 +107,9 @@
             }
         },
         mounted () {
+            let content = document.querySelector('.content')
+            let quickview = document.querySelector('.quickview')
+
             this.$root.$on('quickview', data => {
                 this.item = data.obj
                 this.toggleView()
@@ -126,6 +129,15 @@
                 if(e.key == 'Escape' && this.show == true){
                     this.toggleView()
                 }
+            })
+
+            this.$root.$on('hide-content', () => {
+                this.show = false
+                content.style.filter = "blur(0px)"
+                content.style.transition = "all .5s ease"
+
+                quickview.style.filter = "blur(0px)"
+                quickview.style.transition = "all .5s ease"
             })
         },
 

@@ -1,0 +1,71 @@
+.coffee-box {
+    border-radius: 2em;
+    display: grid;
+    grid-template-rows: 1.5fr 2fr;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+.coffee-header {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: $color-secondary;
+        font-weight: 800;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-shadow: 4px 5px 7px $color-shadow;
+
+        &:hover, &:focus {
+            color: $color-secondary;
+            text-decoration: none;
+        }
+    }
+
+    .bi-arrows-fullscreen {
+        color: $color-secondary;
+        transition: all .3s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.coffee-body-wrapper {
+    padding: 1em;
+    background: #fff;
+}
+
+.coffee-footer {
+    padding: 1em;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    .wrapper {
+        display: flex;
+        column-gap: 1em;
+
+        @media screen and (max-width: 320px){
+            display: block;
+            .price {
+                text-align: left;
+                margin-bottom: .5em;
+            }
+        }
+    }
+
+    .bi-cart-check, .price {
+        align-self: center;
+    }
+
+    .package {
+        .custom-select {
+            max-width: 6em;
+            border-radius: 1em;
+            margin: .1em 0;
+        }
+    }   
+}
