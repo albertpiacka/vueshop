@@ -1,6 +1,6 @@
 <template>
     <transition name="slideDown" mode="out-in">
-        <div class="basket">
+        <div class="basket" data-aos="fade-down">
             <div class="basket-wrapper">
                 <div class="basket-heading">
                     <h1>Your basket</h1>

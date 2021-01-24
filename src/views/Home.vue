@@ -1,7 +1,7 @@
 <template> 
     <div class="home">
         <div id="section-1">
-            <h1>ROASTED</h1>
+            <h1 data-aos="fade-down">ROASTED</h1>
             <div class="bestsellers">
                 <h2>OUR BESTSELLERS</h2>
                 <div class="coffee-grid">   
@@ -144,7 +144,7 @@
             }
 
             img {
-                margin: 1em auto
+                margin: 1em auto;
             }
 
             .values-wrapper {
