@@ -13,7 +13,7 @@
                             <b-icon icon="arrows-fullscreen" @click="setItem(item)" :id="`quickview-tooltip-${item.id}`"></b-icon>
 
                             <b-tooltip :target="`quickview-tooltip-${item.id}`" triggers="hover">
-                                Quickview
+                                Open quickview
                             </b-tooltip>
                         </div>
                         <div class="accessories-body-wrapper">
