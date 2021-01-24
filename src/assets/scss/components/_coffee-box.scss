@@ -45,15 +45,9 @@
     display: flex;
     justify-content: space-between;
     .wrapper {
-        display: flex;
-        column-gap: 1em;
-
-        @media screen and (max-width: 320px){
+        .price {
+            text-align: center;
             display: block;
-            .price {
-                text-align: left;
-                margin-bottom: .5em;
-            }
         }
     }
 

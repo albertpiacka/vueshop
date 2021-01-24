@@ -134,7 +134,7 @@
         }
 
         #section-2 {
-            padding: 2em;
+            padding: 4em 2em;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 1em;
