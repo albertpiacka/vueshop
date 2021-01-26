@@ -55,7 +55,7 @@
             </div>
 
             <div class="price" data-aos="fade-right" data-aos-delay="600">
-                € {{returnPrice(this.filteredItem.price)}}
+                € {{price}}
             </div>
 
             <div class="add-to-basket" data-aos="fade-right" data-aos-delay="700">
@@ -126,10 +126,6 @@
                 }
             },
 
-            returnPrice(price){
-                return (price * Number(this.selected)).toFixed(2)
-            },
-
             addToCart(){
                 var existing = localStorage.getItem('basket')
 
@@ -157,6 +153,12 @@
         computed: {
             filteredItem() {
                 return this.items.filter(item => item.id == this.$route.params.id)[0] 
+            },
+
+            price() {
+                if(this.selected){
+                    return ((this.filteredItem.price * this.selected) * this.quantity).toFixed()
+                } else return (this.filteredItem.price * this.quantity).toFixed()
             }
         },
     }

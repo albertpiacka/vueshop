@@ -66,11 +66,11 @@
 
 <script>
     import { data } from '../data'
-    import VueMixins from '../mixins/VueMixins'
+    import AllMixins from '../mixins/AllMixins'
 
     export default {
         name: 'home',
-        mixins: [VueMixins],
+        mixins: [AllMixins],
 
         data() {
             return {
