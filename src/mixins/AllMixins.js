@@ -22,10 +22,6 @@ export default {
             this.$root.$emit('flash', 'Item added to cart')
         },
 
-        returnPrice(item){
-            return (item.price * Number(item.selected)).toFixed(2)
-        },
-
         setPrice(item){
             item.selectedPrice = item.price * item.selected
 

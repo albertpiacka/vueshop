@@ -30,11 +30,13 @@
                                 <div class="coffee-footer">
                                     <div class="wrapper">
                                         <div class="price">
-                                            <div>€ {{returnPrice(item)}}</div>
+                                            <div :id="`price-${item.id}`">€ {{item.selectedPrice}}</div>
                                         </div>
 
                                         <div class="package">
-                                            <b-form-select v-model="item.selected" :options="item.options" :id="`select-${item.id}`">
+                                            <b-form-select v-model="item.selected" :options="item.options" :id="`select-${item.id}`"
+                                            @change="setPrice(item)"
+                                            >
                                             </b-form-select>
                                         </div>
                                     </div>
@@ -84,6 +86,7 @@
 
             this.items.forEach(item => {
                 item['selected'] = '0.25'
+                item['selectedPrice'] = (item.price * item.selected).toFixed(2)
                 item['options'] = [
                     { value: null, text: 'Select' },
                     { value: '0.25', text: '250gr' },
