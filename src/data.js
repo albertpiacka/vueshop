@@ -105,6 +105,6 @@ export let data =
         name: 'brewista',
         price: 115,
         color: '#BF6D4E'
-      }
+      },
     ]
 ]
