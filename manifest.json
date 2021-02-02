@@ -1,6 +1,0 @@
-{
-    "name": "Roasted Eshop",
-    "short_name": "Roasted",
-    "start_url": "/dist/index.html",
-    "display": "standalone"
-}
