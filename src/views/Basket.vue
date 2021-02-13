@@ -75,12 +75,6 @@
             }
         },
 
-        mounted () {
-            localStorage.getItem('basket').split('],[').forEach(val => {
-                this.basket.push(JSON.parse(val.replace(/\[/g, '').replace(/]/g, '')))
-            })
-        },
-
         methods: {
             removeItem(item) {
                 this.basket = this.basket.filter(n => n.id !== item.id)
