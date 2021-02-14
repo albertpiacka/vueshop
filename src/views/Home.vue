@@ -69,10 +69,11 @@
 <script>
     import { data } from '../data'
     import AllMixins from '../mixins/AllMixins'
+    import DataMixin from '../mixins/DataMixin'
 
     export default {
         name: 'home',
-        mixins: [AllMixins],
+        mixins: [AllMixins, DataMixin],
 
         data() {
             return {
@@ -93,6 +94,26 @@
                     { value: '1', text: '1000gr' },
                 ] 
             })
+        },
+
+        methods: {
+            addToCart(item){
+                let id = this.getDB('basket').length + 1
+
+                let obj = {
+                    id: id,
+                    name: item.name,
+                    quantity: 1,
+                    package: `${item.selected * 1000}gr`,
+                    price: ((item.price * Number(item.selected)) * 1).toFixed(2)
+                }
+
+                this.pushToDB('basket', obj)
+
+                item.selected = '0.25'
+
+                this.$root.$emit('flash', 'Item added to cart')
+            },
         },
     }
 </script>
