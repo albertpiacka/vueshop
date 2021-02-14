@@ -35,7 +35,7 @@
 
 <script>
     import { data } from '../data'
-    import  DataMixin  from '../mixins/DataMixin'
+    import DataMixin from '../mixins/DataMixin'
 
     export default {
         name: 'accessories',
@@ -53,20 +53,15 @@
             },
 
             addToCart(item){
-                var existing = localStorage.getItem('basket')
-
-                existing = existing ? existing.split(',') : []
-
+                let id = this.getDB('basket').length + 1
                 let obj = {
-                    id: (Math.random()*1000).toFixed(0),
+                    id: id,
                     name: item.name,
                     quantity: 1,
                     price: item.price.toFixed(2)
                 }
 
-                existing.push(JSON.stringify([obj]));
-
-                localStorage.setItem('basket', existing.toString())
+                this.pushToDB('basket', obj)
 
                 this.$root.$emit('flash', 'Item added to cart')
             },
@@ -82,8 +77,6 @@
         },
 
         mounted () {
-            this.pushToDB('test', {text: 'test'})
-
             data[1].forEach(obj => {
                 this.items.push(obj)
             })
