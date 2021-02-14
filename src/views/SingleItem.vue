@@ -52,10 +52,11 @@
 
 <script>
     import { data } from '../data'
+    import DataMixin from '../mixins/DataMixin'
 
     export default {
         name: 'SingleItem',
-
+        mixins: [DataMixin],
         data() {
             return {
                 items: [],
@@ -88,20 +89,16 @@
             },
 
             addToCart(){
-                var existing = localStorage.getItem('basket')
-
-                existing = existing ? existing.split(',') : []
+                let id = this.getDB('basket').length + 1
 
                 let obj = {
-                    id: (Math.random()*1000).toFixed(0),
+                    id: id,
                     name: this.filteredItem.name,
                     quantity: this.quantity,
                     price: (this.filteredItem.price * this.quantity).toFixed(2)
                 }
 
-                existing.push(JSON.stringify([obj]));
-
-                localStorage.setItem('basket', existing.toString())
+                this.pushToDB('basket', obj)
 
                 this.quantity = 1
 
