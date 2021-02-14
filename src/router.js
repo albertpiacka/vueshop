@@ -14,7 +14,6 @@ import SingleItem from './views/SingleItem.vue'
 
 import Coffee from './views/Coffee.vue'
 import Accessories from './views/Accessories.vue'
-import Items from './views/Items.vue'
 
 import NotFound from './views/NotFound.vue'
 
@@ -39,10 +38,6 @@ export default new Router({
 		{
 			path: '/accessories',
 			component: Accessories
-		},
-		{
-			path: '/items',
-			component: Items
 		},
 		{
 			path: '/accessories-:id',
