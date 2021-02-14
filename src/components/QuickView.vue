@@ -88,7 +88,9 @@
 </template>
 
 <script>
+    import DataMixin from '../mixins/DataMixin'
     export default {
+        mixins: [DataMixin],
         data() {
             return {
                 item: null,
@@ -174,21 +176,17 @@
             },
 
             addToCart(){
-                var existing = localStorage.getItem('basket')
-
-                existing = existing ? existing.split(',') : []
+                let id = this.getDB('basket').length + 1
 
                 var obj = {
-                    id: (Math.random()*1000).toFixed(0),
+                    id: id,
                     name: this.item.name,
                     quantity: this.quantity,
                     package: this.item == 'coffee' ? (this.selected * 1000).toString() + 'gr' : null,
                     price: ((this.item.price * Number(this.selected)) * this.quantity).toFixed(2)
                 }
 
-                existing.push(JSON.stringify([obj]));
-
-                localStorage.setItem('basket', existing.toString())
+                this.pushToDB('basket', obj)
 
                 this.selected = '0.25'
                 this.quantity = 1
