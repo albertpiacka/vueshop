@@ -188,7 +188,10 @@
 
                 this.pushToDB('basket', obj)
 
-                this.selected = '0.25'
+                if(this.coffee){
+                    this.selected = '0.25'
+                }
+                
                 this.quantity = 1
 
                 this.$root.$emit('flash', 'Item added to cart')
