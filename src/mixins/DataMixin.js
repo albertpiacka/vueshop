@@ -6,11 +6,15 @@ let db = low(adapter)
 export default {
     methods: {
         createDB(){
-            db.defaults({ test: [] }).write()
+            db.defaults({ basket: [] }).write()
         },
 
         pushToDB(DB, value){
             db.get(DB).push(value).write()
+        },
+
+        getDB(DB){
+            return db.get(DB).value()
         }
     },
 }
