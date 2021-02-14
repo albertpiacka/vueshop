@@ -84,37 +84,9 @@
 
         methods: {
             removeItem(item) {
-                console.log(item)
-            },
+                this.removeFromDB('basket', item)
 
-            addQuantity(item) {
-                let val = this.basket.filter(n => n.id == item.id)
-                if(val[0].quantity <= 4){
-                    val[0].quantity++
-
-                    let updated = []
-
-                    this.basket.forEach(item => {
-                        updated.push(JSON.stringify([item]))
-                    })
-
-                    localStorage.setItem('basket', updated.toString())
-                }
-            },
-
-            lowerQuantity(item) {
-                let val = this.basket.filter(n => n.id == item.id)
-                if(val[0].quantity >=2){
-                    val[0].quantity--
-
-                    let updated = []
-
-                    this.basket.forEach(item => {
-                        updated.push(JSON.stringify([item]))
-                    })
-
-                    localStorage.setItem('basket', updated.toString())
-                }
+                this.basket = this.basket.filter(i => i.id !== item.id)
             },
         },
 
