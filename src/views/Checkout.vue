@@ -29,7 +29,9 @@
 </template>
 
 <script>
+    import DataMixin from '../mixins/DataMixin'
     export default {
+        mixins: [DataMixin],
         data() {
             return {
                 data: {
@@ -52,7 +54,7 @@
                 this.cvv = null
                 this.date = null
 
-                localStorage.setItem('basket', '')
+                this.clearDB()
             }
         },
     }
