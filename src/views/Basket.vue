@@ -67,25 +67,24 @@
 </template>
 
 <script>
+    import DataMixin from '../mixins/DataMixin'
     export default {
         name: 'basket',
+        mixins: [DataMixin],
+
         data() {
             return {
                 basket: [],
             }
         },
 
+        mounted () {
+            this.basket = this.getDB('basket')
+        },
+
         methods: {
             removeItem(item) {
-                this.basket = this.basket.filter(n => n.id !== item.id)
-
-                let updated = []
-
-                this.basket.forEach(item => {
-                    updated.push(JSON.stringify([item]))
-                })
-
-                localStorage.setItem('basket', updated.toString())
+                console.log(item)
             },
 
             addQuantity(item) {
