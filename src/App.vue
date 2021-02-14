@@ -16,14 +16,20 @@
 import TheNavigation from './components/TheNavigation.vue'
 import FlashMessage from './components/FlashMessage.vue'
 import QuickView from './components/QuickView'
+import  DataMixin  from './mixins/DataMixin'
 
 export default {
   name: 'App',
+  mixins: [DataMixin],
   components: {
     TheNavigation,
     FlashMessage,
     QuickView,
-  }
+  },
+
+  mounted () {
+    this.createDB()
+  },
 }
 </script>
 
