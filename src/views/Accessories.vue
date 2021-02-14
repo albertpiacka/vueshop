@@ -35,9 +35,11 @@
 
 <script>
     import { data } from '../data'
+    import  DataMixin  from '../mixins/DataMixin'
 
     export default {
         name: 'accessories',
+        mixins: [DataMixin],
         data() {
             return {
                 items: [],
@@ -80,6 +82,8 @@
         },
 
         mounted () {
+            this.pushToDB('test', {text: 'test'})
+
             data[1].forEach(obj => {
                 this.items.push(obj)
             })
